@@ -4,20 +4,20 @@ addEventListener("fetch", (event) => {
 });
 
 const dockerHub = "https://registry-1.docker.io";
-
+const accessDomain = "cloudflare-docker-proxy.myt1176632450.workers.dev";
 const routes = {
   // production
-  ["docker." + CUSTOM_DOMAIN]: dockerHub,
-  ["quay." + CUSTOM_DOMAIN]: "https://quay.io",
-  ["gcr." + CUSTOM_DOMAIN]: "https://gcr.io",
-  ["k8s-gcr." + CUSTOM_DOMAIN]: "https://k8s.gcr.io",
-  ["k8s." + CUSTOM_DOMAIN]: "https://registry.k8s.io",
-  ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
-  ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
-  ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
+  ["docker." + accessDomain]: dockerHub,
+  ["quay." + accessDomain]: "https://quay.io",
+  ["gcr." + accessDomain]: "https://gcr.io",
+  ["k8s-gcr." + accessDomain]: "https://k8s.gcr.io",
+  ["k8s." + accessDomain]: "https://registry.k8s.io",
+  ["ghcr." + accessDomain]: "https://ghcr.io",
+  ["cloudsmith." + accessDomain]: "https://docker.cloudsmith.io",
+  ["ecr." + accessDomain]: "https://public.ecr.aws",
 
   // staging
-  ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
+  ["docker-staging." + accessDomain]: dockerHub,
 };
 
 function routeByHosts(host) {
